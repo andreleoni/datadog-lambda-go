@@ -17,7 +17,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/DataDog/datadog-lambda-go/internal/logger"
+	"github.com/andreleoni/datadog-lambda-go/internal/logger"
 	"github.com/aws/aws-xray-sdk-go/header"
 	"github.com/aws/aws-xray-sdk-go/xray"
 	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"

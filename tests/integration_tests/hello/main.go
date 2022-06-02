@@ -9,7 +9,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/lambda"
 
-	ddlambda "github.com/DataDog/datadog-lambda-go"
+	ddlambda "github.com/andreleoni/datadog-lambda-go"
 	"github.com/aws/aws-lambda-go/events"
 	httptrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/net/http"
 	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"

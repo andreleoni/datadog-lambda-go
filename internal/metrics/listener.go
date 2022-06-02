@@ -20,9 +20,9 @@ import (
 	"github.com/aws/aws-lambda-go/lambdacontext"
 
 	"github.com/DataDog/datadog-go/statsd"
-	"github.com/DataDog/datadog-lambda-go/internal/extension"
-	"github.com/DataDog/datadog-lambda-go/internal/logger"
-	"github.com/DataDog/datadog-lambda-go/internal/version"
+	"github.com/andreleoni/datadog-lambda-go/internal/extension"
+	"github.com/andreleoni/datadog-lambda-go/internal/logger"
+	"github.com/andreleoni/datadog-lambda-go/internal/version"
 )
 
 type (

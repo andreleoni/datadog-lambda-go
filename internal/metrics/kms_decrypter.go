@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/DataDog/datadog-lambda-go/internal/logger"
+	"github.com/andreleoni/datadog-lambda-go/internal/logger"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/kms"
 	"github.com/aws/aws-sdk-go/service/kms/kmsiface"

@@ -10,10 +10,13 @@ package trace
 
 import (
 	"context"
+	"fmt"
+	"log"
 	"os"
+	"reflect"
 	"testing"
 
-	"github.com/DataDog/datadog-lambda-go/internal/extension"
+	"github.com/andreleoni/datadog-lambda-go/internal/extension"
 	"github.com/aws/aws-lambda-go/lambdacontext"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
@@ -161,51 +164,59 @@ func TestListener_buildTraceStartOptions(t *testing.T) {
 		got := listener.buildTraceStartOptions()
 
 		assert.Equal(t, len(got), 3)
+
+		for _, g := range got {
+			f := reflect.ValueOf(g)
+			// fmt.Println(f.String())
+			fmt.Println(f.Type())
+		}
+
+		log.Fatal("force")
 	})
 
-	t.Run("when the DD_SERVICE only is present", func(t *testing.T) {
-		customServiceName := "my-service"
+	// t.Run("when the DD_SERVICE only is present", func(t *testing.T) {
+	// 	customServiceName := "my-service"
 
-		os.Setenv("DD_SERVICE", customServiceName)
-		defer os.Unsetenv("DD_SERVICE")
+	// 	os.Setenv("DD_SERVICE", customServiceName)
+	// 	defer os.Unsetenv("DD_SERVICE")
 
-		os.Unsetenv("DD_ENV")
+	// 	os.Unsetenv("DD_ENV")
 
-		listener := Listener{extensionManager: &extension.ExtensionManager{}}
+	// 	listener := Listener{extensionManager: &extension.ExtensionManager{}}
 
-		got := listener.buildTraceStartOptions()
+	// 	got := listener.buildTraceStartOptions()
 
-		assert.Equal(t, len(got), 3)
-	})
+	// 	assert.Equal(t, len(got), 3)
+	// })
 
-	t.Run("when the DD_ENV only is present", func(t *testing.T) {
-		customEnvName := "my-env"
+	// t.Run("when the DD_ENV only is present", func(t *testing.T) {
+	// 	customEnvName := "my-env"
 
-		os.Unsetenv("DD_SERVICE")
-		os.Setenv("DD_ENV", customEnvName)
-		defer os.Unsetenv("DD_ENV")
+	// 	os.Unsetenv("DD_SERVICE")
+	// 	os.Setenv("DD_ENV", customEnvName)
+	// 	defer os.Unsetenv("DD_ENV")
 
-		listener := Listener{extensionManager: &extension.ExtensionManager{}}
+	// 	listener := Listener{extensionManager: &extension.ExtensionManager{}}
 
-		got := listener.buildTraceStartOptions()
+	// 	got := listener.buildTraceStartOptions()
 
-		assert.Equal(t, len(got), 4)
-	})
+	// 	assert.Equal(t, len(got), 4)
+	// })
 
-	t.Run("when the DD_ENV and DD_SERVICE are present", func(t *testing.T) {
-		customEnvName := "my-env"
-		customServiceName := "my-service"
+	// t.Run("when the DD_ENV and DD_SERVICE are present", func(t *testing.T) {
+	// 	customEnvName := "my-env"
+	// 	customServiceName := "my-service"
 
-		os.Setenv("DD_SERVICE", customServiceName)
-		defer os.Unsetenv("DD_SERVICE")
+	// 	os.Setenv("DD_SERVICE", customServiceName)
+	// 	defer os.Unsetenv("DD_SERVICE")
 
-		os.Setenv("DD_ENV", customEnvName)
-		defer os.Unsetenv("DD_ENV")
+	// 	os.Setenv("DD_ENV", customEnvName)
+	// 	defer os.Unsetenv("DD_ENV")
 
-		listener := Listener{extensionManager: &extension.ExtensionManager{}}
+	// 	listener := Listener{extensionManager: &extension.ExtensionManager{}}
 
-		got := listener.buildTraceStartOptions()
+	// 	got := listener.buildTraceStartOptions()
 
-		assert.Equal(t, len(got), 4)
-	})
+	// 	assert.Equal(t, len(got), 4)
+	// })
 }

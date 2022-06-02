@@ -18,11 +18,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/DataDog/datadog-lambda-go/internal/extension"
-	"github.com/DataDog/datadog-lambda-go/internal/logger"
-	"github.com/DataDog/datadog-lambda-go/internal/metrics"
-	"github.com/DataDog/datadog-lambda-go/internal/trace"
-	"github.com/DataDog/datadog-lambda-go/internal/wrapper"
+	"github.com/andreleoni/datadog-lambda-go/internal/extension"
+	"github.com/andreleoni/datadog-lambda-go/internal/logger"
+	"github.com/andreleoni/datadog-lambda-go/internal/metrics"
+	"github.com/andreleoni/datadog-lambda-go/internal/trace"
+	"github.com/andreleoni/datadog-lambda-go/internal/wrapper"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 

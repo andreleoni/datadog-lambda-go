@@ -3,13 +3,14 @@ package ddlambda_test
 import (
 	"context"
 	"encoding/json"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
 	"strings"
 	"testing"
 
+	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+
 	"github.com/aws/aws-lambda-go/events"
 
-	ddlambda "github.com/DataDog/datadog-lambda-go"
+	ddlambda "github.com/andreleoni/datadog-lambda-go"
 )
 
 var exampleSQSExtractor = func(ctx context.Context, ev json.RawMessage) map[string]string {

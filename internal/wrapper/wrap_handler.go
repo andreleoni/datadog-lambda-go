@@ -14,7 +14,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/DataDog/datadog-lambda-go/internal/logger"
+	"github.com/andreleoni/datadog-lambda-go/internal/logger"
 	"github.com/aws/aws-lambda-go/lambda"
 
 	"reflect"

@@ -63,6 +63,4 @@ git push origin "refs/tags/v$NEW_VERSION"
 
 echo
 echo "Now create a new release with the tag v${NEW_VERSION}"
-echo "https://github.com/DataDog/datadog-lambda-go/releases/new?tag=v$NEW_VERSION&title=v$NEW_VERSION"
-
-
+echo "https://github.com/andreleoni/datadog-lambda-go/releases/new?tag=v$NEW_VERSION&title=v$NEW_VERSION"
